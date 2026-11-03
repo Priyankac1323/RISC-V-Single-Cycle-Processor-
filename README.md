@@ -30,8 +30,8 @@ The separate `programs/test_program.hex` is provided as a readable copy of the s
 
 ## Expected result
 The built-in program executes:
-- `x1 = 5`
-- `x2 = 7`
+- `x1 = 7`
+- `x2 = 5`
 - `x3 = x1 + x2 = 12`
 - stores `12` to data memory word 0
 - loads it into `x4`
