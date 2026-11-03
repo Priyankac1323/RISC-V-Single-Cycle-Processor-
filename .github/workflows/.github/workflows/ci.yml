@@ -1,0 +1,36 @@
+
+name:  RISC-V Processor CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Icarus Verilog
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog
+
+      - name: Find SystemVerilog files
+        run: |
+          find . -type f -name "*.sv" \
+            ! -path "./.github/*" \
+            ! -path "./testbench/*" \
+            > source_files.txt
+          cat source_files.txt
+          test -s source_files.txt
+
+      - name: Compile SystemVerilog
+        run: |
+          mapfile -t FILES < source_files.txt
+          iverilog -g2012 -tnull "${FILES[@]}"
