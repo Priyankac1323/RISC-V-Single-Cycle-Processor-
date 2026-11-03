@@ -1,8 +1,6 @@
 # RISC-V-Single-Cycle-Processor-
 Design and implementation of a 32-bit single-cycle RISC-V processor using System Verilog. 
-# RISC-V CPU Design Using SystemVerilog
 
-A small educational 32-bit, single-cycle RISC-V CPU implemented in SystemVerilog.
 
 ## Supported instructions
 - R-type: `ADD`, `SUB`, `AND`, `OR`, `XOR`, `SLT`
